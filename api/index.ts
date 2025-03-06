@@ -1,17 +1,7 @@
 const express = require("express");
 const app = express();
-const ttdown = require('./tiktokwm.js')
-const tw = require('./tw.js')
-const getLevel = require('./toramlevel.js')
-const {aichat} = require('./aitoxic.js')
-const {aimod} = require('./aimod.js')
-const igdl = require('./igdl4.js')
-const fbdl = require('./fbdl.js')
 const {mp3v4} = require('./ytdl3.js')
-const {mp4} = require('./ytdl3V.js')
 const ytmp3 = require('./tube.js')
-const mp3 = require('./ytmp3.js')
-const ytmp4 = require('./tubevideo.js')
 const {getBuffer} = require('./myfunc.js')
 const downloadFileAsBuffer = require('./downloadFileAsBuffer.js')
 
