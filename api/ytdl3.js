@@ -1,5 +1,4 @@
 const ytdl = require('ytdl-core');
-const {getBuffer} = require('./myfunc.js')
 const regexYT = /(?<=[=\/&\%3D&])[a-zA-Z0-9_\-]{11}(?=[=\/&?#%\n\r]|$)/
 
 const mp3 = async (url) => {
