@@ -11,18 +11,12 @@ app.get('/ytdlmp3/:id', async (req,res) => {
 const q = req.query.data
 //console.log(q)
 let urlyt = `https://www.youtube.com/watch?v=${q}`
-const emulate = () =>{
-async function start() {
 try{
 const respon = await mp3(urlyt)
   res.send(respon)
 }catch(e){
     res.end()
 }
-}
-start()
-}
-emulate()
 });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
