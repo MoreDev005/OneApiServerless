@@ -1,8 +1,6 @@
 const express = require("express");
 const app = express();
-const {mp3v4} = require('./ytdl3.js')
-const {getBuffer} = require('./myfunc.js')
-const downloadFileAsBuffer = require('./downloadFileAsBuffer.js')
+const mp3 = require('./ytdl3.js')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,7 +14,7 @@ let urlyt = `https://www.youtube.com/watch?v=${q}`
 const emulate = () =>{
 async function start() {
 try{
-const respon = await mp3v4(urlyt)
+const respon = await mp3(urlyt)
   res.send(respon)
 }catch(e){
     res.end()
