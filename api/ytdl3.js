@@ -21,4 +21,3 @@ return new Promise((resolve, reject) => {
 }
 
 module.exports = mp3;
-module.exports = {mp3,mp3v1,mp3v2,mp3v3,mp3v4,mp4,mp4v1}
