@@ -1,5 +1,5 @@
 const getLevel = async (params) => {
-let level = await require("./toramlevel.json");
+let level = await require("./toram.json");
 try{
 let findlevel = level.filter(a=> params>a.min-1 && params<a.max)
 return findlevel[0].desc
