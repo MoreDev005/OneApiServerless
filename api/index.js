@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const ytdownload = require("@vreden/youtube_scraper")
+const ytdownload = require("./oceanyt.js")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -12,8 +12,8 @@ const q = req.query.data
 //console.log(q)
 let urlyt = `https://www.youtube.com/watch?v=${q}`
 try{
-const respon = await ytdownload.ytmp3(urlyt,'128')
-  res.send(respon.download.url)
+const respon = await ytdownload(urlyt)
+  res.send(respon)
 }catch(e){
     res.end()
 }
