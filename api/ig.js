@@ -44,10 +44,10 @@ let thumb = $('.post-thumb > img').attr('src')
 let link = $('.download-options > a').attr('href')
 return {status: true, author: "iwan", result:{thumb:thumb, link:link}}
 }else{
-  return {status: false, message: "Gagal mengunduh"}
+  return {status: false author: "iwan", message: "Gagal mengunduh"}
 }
 }catch(e){
-  return {status: false, message: "Gagal mengunduh"}
+  return {status: false, author: "iwan", message: e.message}
 }
 }
 
