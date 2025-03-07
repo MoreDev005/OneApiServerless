@@ -1,6 +1,9 @@
 const axios = require("axios");
 const { createDecipheriv } = require('crypto');
 
+const audio = ["92", "128", "256", "320"]
+const video = ["144", "360", "480", "720", "1080"]
+
 function getYouTubeVideoId(url) {
 	const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|v\/|embed\/|user\/[^\/\n\s]+\/)?(?:watch\?v=|v%3D|embed%2F|video%2F)?|youtu\.be\/|youtube\.com\/watch\?v=|youtube\.com\/embed\/|youtube\.com\/v\/|youtube\.com\/shorts\/|youtube\.com\/playlist\?list=)([a-zA-Z0-9_-]{11})/;
 	const match = url.match(regex);
