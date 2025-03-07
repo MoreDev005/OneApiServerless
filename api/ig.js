@@ -2,11 +2,11 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 
-const ig = async () =>{
+const ig = async (url) =>{
 let time = new Date()
 // Menyiapkan data form
 const formData = new FormData();
-formData.append('link', 'https://www.instagram.com/reel/DDd7QqeRyWX/?igsh=MWdpbWl5djhxMTFkMg==');
+formData.append('link', url);
 formData.append('downloader', 'video');
 formData.append('pageLoad', time);
 
