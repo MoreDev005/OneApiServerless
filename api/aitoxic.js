@@ -46,10 +46,10 @@ const response = await axios({
 }
   })
 if(response.status == 200){
-return {status : 'success',author:'iwan',respon : response.data}
+return {status : true ,author:'iwan',respon : response.data}
 }
 }catch(e){
-return {status : 'error',author:'iwan',respon : e.message}
+return {status : false,author:'iwan',respon : e.message}
 }
 }
 
