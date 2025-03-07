@@ -4,6 +4,7 @@ const ytmp3 = require("./savetube.js");
 const aichat = require('./aitoxic.js');
 const tikwm = require('./tikwm.js');
 const ig = require('./ig.js');
+const yt = require('./yt.js');
 const fb = require('./fb.js');
 const {getBuffer} = require('./myfunc.js');
 const downloadFileAsBuffer = require('./downloadFileAsBuffer.js');
