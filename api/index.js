@@ -14,7 +14,7 @@ const emulate = () =>{
 async function start() {
 try{
 const respon = await aichat(q)
-  res.send(respon.respon)
+  res.send(respon)
 }catch(e){
     res.end()
 }
