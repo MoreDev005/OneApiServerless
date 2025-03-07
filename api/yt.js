@@ -32,22 +32,21 @@ const config = {
 try{
 let respon = await axios.post('https://cnvmp3.com/check_database.php', jsondata, config)
 if(respon.status == 200){
-if(respon.data.succes){
+if(respon.data.success){
   return {status: true, author: "iwan", result:{title:respon.title, link:respon.data.server_path,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(respon.data.server_path)}`}}
 }else{
 let profildata = {"url":`https://www.youtube.com/watch?v=${videoID}`,"token":"1234"}
 let get_video_data = await axios.post('https://cnvmp3.com/get_video_data.php', profildata, config)
-if(get_video_data.data.succes){
+if(get_video_data.data.success){
 let ucep = {"url":`https://www.youtube.com/watch?v=${videoID}`,"quality":4,"title":get_video_data.data.title,"formatValue":1}
 let download_video_ucep = await axios.post('https://cnvmp3.com/download_video_ucep.php', ucep, config)
-if(download_video_ucep.data.succes){
+if(download_video_ucep.data.success){
 let insertdb = {"youtube_id":videoID,"server_path":download_video_ucep.data.download_link,"quality":4,"title":get_video_data.data.title,"formatValue":1}
 await axios.post('https://cnvmp3.com/download_video_ucep.php', inserdb, config)
 return {status: true, author: "iwan", result:{title:get_video_data.data.title, link:download_video_ucep.data.download_link,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(download_video_ucep.data.download_link)}`}}
 }
 }
 }
-return {status: true, author: "iwan", result:{title:respon.title, link:respon.data.server_path,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(respon.data.server_path)}`}}
 }else{
   return {status: false, author: "iwan", message: "Gagal mengunduh"}
 }
