@@ -32,7 +32,9 @@ const config = {
 try{
 let respon = await axios.post('https://cnvmp3.com/check_database.php', jsondata, config)
 if(respon.status == 200){
-if(respon.data.success == false){
+if(respon.data.succes){
+  return {status: true, author: "iwan", result:{title:respon.title, link:respon.data.server_path,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(respon.data.server_path)}`}}
+}else{
 let profildata = {"url":`https://www.youtube.com/watch?v=${videoID}`,"token":"1234"}
 let get_video_data = await axios.post('https://cnvmp3.com/get_video_data.php', profildata, config)
 if(get_video_data.data.succes){
@@ -44,8 +46,7 @@ await axios.post('https://cnvmp3.com/download_video_ucep.php', inserdb, config)
 return {status: true, author: "iwan", result:{title:get_video_data.data.title, link:download_video_ucep.data.download_link,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(download_video_ucep.data.download_link)}`}}
 }
 }
-}	
-if(respon.data == '')return {status: false, author: "iwan", message: "Gagal mengunduh"}
+}
 return {status: true, author: "iwan", result:{title:respon.title, link:respon.data.server_path,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(respon.data.server_path)}`}}
 }else{
   return {status: false, author: "iwan", message: "Gagal mengunduh"}
