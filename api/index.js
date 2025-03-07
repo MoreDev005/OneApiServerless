@@ -5,6 +5,7 @@ const aichat = require('./aitoxic.js');
 const tikwm = require('./tikwm.js');
 const ig = require('./ig.js');
 const fb = require('./fb.js');
+const {getBuffer} = require('./myfunc.js');
 const downloadFileAsBuffer = require('./downloadFileAsBuffer.js');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -17,6 +18,22 @@ const emulate = () =>{
 async function start() {
 try{
 const respon = await downloadFileAsBuffer(q)
+  res.send(respon)
+}catch(e){
+    res.end()
+}
+}
+start()
+}
+emulate()
+});
+
+app.get('/getbuffer/:id', async (req,res) => {
+const q = req.query.data
+const emulate = () =>{
+async function start() {
+try{
+const respon = await getBuffer(q)
   res.send(respon)
 }catch(e){
     res.end()
@@ -80,7 +97,8 @@ const q = req.query.data
 const emulate = () =>{
 async function start() {
 try{
-const respon = await ig(q)
+let baseUrl = `${req.protocol}://${req.headers.host}`
+const respon = await ig(q,baseUrl)
   res.send(respon)
 }catch(e){
     res.end()
