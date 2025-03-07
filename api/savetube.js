@@ -53,6 +53,7 @@ async function savetube(link, quality, value) {
         })).data
         return {
             status: true,
+	    author: 'iwan',
             quality: `${quality}${value === "audio" ? "kbps" : "p"}`,
             availableQuality: value === "audio" ? audio : video,
             url: response.data.downloadUrl,
@@ -66,30 +67,5 @@ async function savetube(link, quality, value) {
         }
     }
 }
-async function ytmp3(link, formats = 128) {
-	const videoId = getYouTubeVideoId(link);
-	const format = audio.includes(Number(formats)) ? Number(formats) : 128
-	if (!videoId) {
-		return {
-			status: false,
-			message: "Invalid YouTube URL"
-		};
-	}
-	try {
-	    let url = "https://youtube.com/watch?v=" + videoId
-		let response = await savetube(url, format, "audio")
-		return {
-			status: true,
-			author: "iwan",
-			download: response
-		};
-	} catch (error) {
-		console.log(error)
-		return {
-			status: false,
-			message: error.response ? `HTTP Error: ${error.response.status}` : error.message
-		};
-	}
-}
 
-module.exports = ytmp3;
+module.exports = savetube;
