@@ -4,6 +4,7 @@ const ytmp3 = require("./savetube.js");
 const aichat = require('./aitoxic.js');
 const tikwm = require('./tikwm.js');
 const ig = require('./ig.js');
+const yt = require('./yt.js');
 const fb = require('./fb.js');
 const {getBuffer} = require('./myfunc.js');
 const downloadFileAsBuffer = require('./downloadFileAsBuffer.js');
@@ -116,6 +117,23 @@ async function start() {
 try{
 let baseUrl = `${req.protocol}://${req.headers.host}`
 const respon = await fb(q,baseUrl)
+  res.send(respon)
+}catch(e){
+    res.end()
+}
+}
+start()
+}
+emulate()
+});
+
+app.get('/yt/:id', async (req,res) => {
+const q = req.query.data
+const emulate = () =>{
+async function start() {
+try{
+let baseUrl = `${req.protocol}://${req.headers.host}`
+const respon = await yt(q,baseUrl)
   res.send(respon)
 }catch(e){
     res.end()
