@@ -1,6 +1,7 @@
 const axios = require('axios');
 const aichat = async (prompt)=> {
-  const response = await axios({
+try{
+const response = await axios({
     method: "POST",
     url: "https://chateverywhere.app/api/chat",
     headers: {
@@ -44,8 +45,12 @@ const aichat = async (prompt)=> {
 "temperature":0.5
 }
   })
-
-  return {respon : response.data}
+if(response.status == 200){
+return {status : 'success' ,respon : response.data}
+}
+}catch(e){
+return {status : 'error' ,respon : e.message}
+}
 }
 
 module.exports = aichat;
