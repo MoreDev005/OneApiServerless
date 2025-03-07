@@ -77,7 +77,6 @@ async function ytmp3(link, formats = 128) {
 	}
 	try {
 	    let url = "https://youtube.com/watch?v=" + videoId
-		let data = await yts(url);
 		let response = await savetube(url, format, "audio")
 		return {
 			status: true,
