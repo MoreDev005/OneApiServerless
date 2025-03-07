@@ -28,7 +28,7 @@ const q = req.query.data
 const emulate = () =>{
 async function start() {
 try{
-const respon = await ytmp3(q,"128")
+const respon = await ytmp3(q,"128","audio")
   res.send(respon)
 }catch(e){
     res.end()
