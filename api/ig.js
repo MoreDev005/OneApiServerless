@@ -39,7 +39,7 @@ if(respon.data.error)return {status: false, author: "iwan", message: "Gagal meng
 let $ = cheerio.load(respon.data.html)
 let thumb = $('.post-thumb > img').attr('src')
 let link = $('.download-options > a').attr('href')
-return {status: true, author: "iwan", result:{thumb:thumb, link:link,linkUnblock:`${baseUrl}/getbuffer/id?data=${encodeURIComponent(link)}`}}
+return {status: true, author: "iwan", result:{thumb:thumb, link:link,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(link)}`}}
 }else{
   return {status: false, author: "iwan", message: "Gagal mengunduh"}
 }
