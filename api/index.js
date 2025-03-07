@@ -126,6 +126,23 @@ start()
 emulate()
 });
 
+app.get('/yt/:id', async (req,res) => {
+const q = req.query.data
+const emulate = () =>{
+async function start() {
+try{
+let baseUrl = `${req.protocol}://${req.headers.host}`
+const respon = await yt(q,baseUrl)
+  res.send(respon)
+}catch(e){
+    res.end()
+}
+}
+start()
+}
+emulate()
+});
+
 app.listen(3000, () => console.log("Server ready on port 3000"));
 
 module.exports = app;
