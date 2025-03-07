@@ -13,10 +13,8 @@ formData.append('pageLoad', time);
 const config = {
   headers: {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'Accept-Encoding': 'gzip, deflate, br, zstd',
+    'Accept-Encoding': 'gzip, deflate, br',
     'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
-    'Connection': 'keep-alive',
-    'Content-Length': '134',
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
     'Cookie': 'PHPSESSID=5rl20jre4776743m6np8lo34m0',
     'Host': 'indownloader.app',
