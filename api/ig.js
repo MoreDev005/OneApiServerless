@@ -2,7 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 
-const ig = async (url) =>{
+const ig = async (url,baseUrl) =>{
 let time = new Date()
 // Menyiapkan data form
 const formData = new FormData();
@@ -34,13 +34,12 @@ const config = {
 try{
 
 let respon = await axios.post('https://indownloader.app/request', formData, config)
-console.log(respon.data)
 if(respon.status == 200){
 if(respon.data.error)return {status: false, author: "iwan", message: "Gagal mengunduh"}
 let $ = cheerio.load(respon.data.html)
 let thumb = $('.post-thumb > img').attr('src')
 let link = $('.download-options > a').attr('href')
-return {status: true, author: "iwan", result:{thumb:thumb, link:link}}
+return {status: true, author: "iwan", result:{thumb:thumb, link:link,linkUnblock:`${baseUrl}/getbuffer/id?data=${encodeURIComponent(link)}`}}
 }else{
   return {status: false, author: "iwan", message: "Gagal mengunduh"}
 }
