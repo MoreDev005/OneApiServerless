@@ -38,16 +38,16 @@ try{
 let respon = await axios.post('https://indownloader.app/request', formData, config)
 console.log(respon.data)
 if(respon.status == 200){
-if(respon.data.error)return {status: false, message: "Gagal mengunduh"}
+if(respon.data.error)return {status: false, author: "iwan", message: "Gagal mengunduh"}
 let $ = cheerio.load(respon.data.html)
 let thumb = $('.post-thumb > img').attr('src')
 let link = $('.download-options > a').attr('href')
 return {status: true, author: "iwan", result:{thumb:thumb, link:link}}
 }else{
-  return {status: false, message: "Gagal mengunduh"}
+  return {status: false, author: "iwan", message: "Gagal mengunduh"}
 }
 }catch(e){
-  return {status: false, message: "Gagal mengunduh"}
+  return {status: false, author: "iwan", message: e.message}
 }
 }
 

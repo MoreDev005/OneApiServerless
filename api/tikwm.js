@@ -26,7 +26,7 @@ formData.append('web','1');
 formData.append('hd','1');
 let data = await axios.post('https://www.tikwm.com/api/',formData,{headers:headers})
 if(data.status == 200){
-if(data.data.msg == '-1') return {status: "error", author: "iwan", message: data.data.msg}
+if(data.data.msg == '-1') return {status: false, author: "iwan", message: data.data.msg}
 let mainUrl = 'https://tikwm.com';
 return {status: true, author: "iwan", result : {title:data.data.data.title,linkUnblock:`${mainUrl}${data.data.data.play}`,link:`${mainUrl}${data.data.data.hdplay}`,musik:`${mainUrl}${data.data.data.music}`} }
  }else{
