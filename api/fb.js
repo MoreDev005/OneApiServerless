@@ -27,7 +27,7 @@ let $ = cheerio.load(respon.data.template)
  return {
  status:true,
  author:"iwan",
- result:{thumb:thumb,videohd:hd,videosd:sd}
+ result:{thumb:thumb,link:{hd:arrlink[0],sd:arrlink[1]},unblock:{hd:hd,sd:sd}}
  }
 }catch(e){
   return {status:false ,author:"iwan",message:e.message}
