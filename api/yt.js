@@ -41,23 +41,23 @@ let respon = await axios.post('https://cnvmp3.com/check_database.php', jsondata,
 if(respon.status == 200){
 console.log('step 1',respon.data)
 if(respon.data.success){
-  return {status: true, author: "iwan", result:{title:respon.data.data.title, link:respon.data.data.server_path,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(respon.data.data.server_path)}`}}
+  return {status: true, author: "iwan", result:{title:respon.data.data.title, link:encodeURI(respon.data.data.server_path),linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(respon.data.data.server_path)}`}}
 }else{
-await delay(5)
+await delay(3)
 let profildata = {"url":`https://www.youtube.com/watch?v=${videoID}`,"token":"1234"}
 let get_video_data = await axios.post('https://cnvmp3.com/get_video_data.php', profildata, config)
 console.log('step 2',get_video_data.data)
 if(get_video_data.data.success){
-await delay(5)
+await delay(3)
 let ucep = {"url":`https://www.youtube.com/watch?v=${videoID}`,"quality":4,"title":get_video_data.data.title,"formatValue":1}
 let download_video_ucep = await axios.post('https://cnvmp3.com/download_video_ucep.php', ucep, config)
 console.log('step 3',download_video_ucep.data)
 if(download_video_ucep.data.success){
-await delay(5)
+await delay(3)
 let insertdb = {"youtube_id":videoID,"server_path":download_video_ucep.data.download_link,"quality":4,"title":get_video_data.data.title,"formatValue":1}
 let finish = await axios.post('https://cnvmp3.com/insert_to_database.php', insertdb, config)
 console.log('step 4',finish.data)
-return {status: true, author: "iwan", result:{title:get_video_data.data.title, link:download_video_ucep.data.download_link,linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(download_video_ucep.data.download_link)}`}}
+return {status: true, author: "iwan", result:{title:get_video_data.data.title, link:encodeURI(download_video_ucep.data.download_link),linkUnblock:`${baseUrl}/download/id?data=${encodeURIComponent(download_video_ucep.data.download_link)}`}}
 }
 }
 }
