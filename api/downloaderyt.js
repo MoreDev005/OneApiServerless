@@ -3,13 +3,15 @@ const axios = require('axios');
 // Function to download the file and return it as a buffer
 async function downloadFileAsBuffer(url) {
   try {
+    const parsedUrl = new URL(url);
+    const basehost = parsedUrl.hostname;
     // Set up the request headers
     const headers = {
       'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
       'Accept-Encoding': 'gzip, deflate, br, zstd',
       'Accept-Language': 'en-GB,en-US;q=0.9,en;q=0.8',
       'Connection': 'keep-alive',
-      'Host': 'apiv13dlp.cnvmp3.me',
+      'Host': basehost,
       'Referer': 'https://cnvmp3.com/',
       'Sec-CH-UA': '"Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"',
       'Sec-CH-UA-Mobile': '?0',
