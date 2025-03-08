@@ -7,11 +7,28 @@ const ig = require('./ig.js');
 const yt = require('./yt.js');
 const fb = require('./fb.js');
 const {getBuffer} = require('./myfunc.js');
+const downloaderyt = require('./downloaderyt.js');
 const downloadFileAsBuffer = require('./downloadFileAsBuffer.js');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
+
+app.get('/ytget/:id', async (req,res) => {
+const q = req.query.data
+const emulate = () =>{
+async function start() {
+try{
+const respon = await downloaderyt(q)
+  res.send(respon)
+}catch(e){
+    res.end()
+}
+}
+start()
+}
+emulate()
+});
 
 app.get('/download/:id', async (req,res) => {
 const q = req.query.data
