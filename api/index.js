@@ -4,7 +4,8 @@ const ytmp3 = require("./savetube.js");
 const aichat = require('./aitoxic.js');
 const tikwm = require('./tikwm.js');
 const ig = require('./ig.js');
-const yt = require('./yt.js');
+const yta = require('./yta.js');
+const ytv = require('./ytv.js');
 const fb = require('./fb.js');
 const {getBuffer} = require('./myfunc.js');
 const downloaderyt = require('./downloaderyt.js');
@@ -144,13 +145,30 @@ start()
 emulate()
 });
 
-app.get('/yt/:id', async (req,res) => {
+app.get('/yta/:id', async (req,res) => {
 const q = req.query.data
 const emulate = () =>{
 async function start() {
 try{
 let baseUrl = `${req.protocol}://${req.headers.host}`
-const respon = await yt(q,baseUrl)
+const respon = await yta(q,baseUrl)
+  res.send(respon)
+}catch(e){
+    res.end()
+}
+}
+start()
+}
+emulate()
+});
+
+app.get('/ytv/:id', async (req,res) => {
+const q = req.query.data
+const emulate = () =>{
+async function start() {
+try{
+let baseUrl = `${req.protocol}://${req.headers.host}`
+const respon = await ytv(q,baseUrl)
   res.send(respon)
 }catch(e){
     res.end()
