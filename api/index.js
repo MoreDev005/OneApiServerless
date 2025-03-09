@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const path = require('path');
 const ytmp3 = require("./savetube.js");
 const aichat = require('./aitoxic.js');
 const tikwm = require('./tikwm.js');
@@ -12,8 +13,12 @@ const downloaderyt = require('./downloaderyt.js');
 const downloadFileAsBuffer = require('./downloadFileAsBuffer.js');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// Serve static files (CSS, images, etc.) from the 'public' directory
+app.use(express.static(path.join(__dirname, 'api')));
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'api', 'index.html'));
+});
 
 app.get('/ytget/:id', async (req,res) => {
 const q = req.query.data
