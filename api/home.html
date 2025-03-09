@@ -60,6 +60,17 @@
             background-color: #f4f4f4;
             padding: 5px;
             border-radius: 5px;
+            display: block;
+            word-wrap: break-word; /* Prevent overflow */
+            overflow-wrap: break-word; /* Prevent overflow */
+            white-space: pre-wrap; /* Ensure line breaks */
+            max-width: 100%; /* Prevent overflow beyond container */
+        }
+
+        .endpoint pre {
+            margin: 0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .endpoint ul {
