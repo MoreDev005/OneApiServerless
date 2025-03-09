@@ -26,7 +26,14 @@ const emulate = () =>{
 async function start() {
 try{
 const respon = await downloaderyt(q)
-  res.send(respon)
+const parsedUrl = new URL(q);
+const basehost = parsedUrl.hostname
+let name = q.replace(basehost,'').replace("/downloads/download.php?file=/",'')
+// Menambahkan header untuk mendownload file dengan nama yang benar
+res.setHeader('Content-Disposition', `attachment; filename="${decodeURIComponent(filename)}"`);
+// Mengatur tipe konten file sebagai MP3
+res.setHeader('Content-Type', 'audio/mpeg'); // Tipe MIME untuk file MP3
+res.send(respon)
 }catch(e){
     res.end()
 }
