@@ -29,8 +29,9 @@ const respon = await downloaderyt(q)
 const parsedUrl = new URL(q);
 const basehost = parsedUrl.hostname
 let name = q.replace(basehost,'').replace("/downloads/download.php?file=/",'')
+console.log(name)
 // Menambahkan header untuk mendownload file dengan nama yang benar
-res.setHeader('Content-Disposition', `attachment; filename="${decodeURIComponent(filename)}"`);
+res.setHeader('Content-Disposition', `attachment; filename="${decodeURIComponent(name)}"`);
 // Mengatur tipe konten file sebagai MP3
 res.setHeader('Content-Type', 'audio/mpeg'); // Tipe MIME untuk file MP3
 res.send(respon)
