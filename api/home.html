@@ -4,98 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API Documentation</title>
-    <link rel="stylesheet" href="var/task/api/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e90ff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .api-section {
+            margin-bottom: 40px;
+        }
+
+        .api-section h2 {
+            font-size: 1.8em;
+            color: #1e90ff;
+        }
+
+        .api-section p {
+            font-size: 1.1em;
+        }
+
+        .endpoint {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .endpoint code {
+            font-size: 1.1em;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .endpoint ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .endpoint li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background-color: #1e90ff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
 </head>
 <body>
-
     <header>
-        <h1>Dokumentasi API</h1>
+        <h1>API Documentation</h1>
+        <p>Welcome to the API documentation! Below you will find all the available API endpoints.</p>
     </header>
 
-    <section class="api-endpoint">
-        <h2>GET AI</h2>
-        <p><strong>URL:</strong> <a href="https://oneapiserver.vercel.app/ai/id?data=apa+itu+klorofil" target="_blank">https://oneapiserver.vercel.app/ai/id?data=apa+itu+klorofil</a></p>
-        <h3>Response</h3>
-        <pre>
-{
-  "status": true,
-  "author": "iwan",
-  "result": {
-    "respon": "Klorofil itu zat hijau yang ada di tanaman, bro! Fungsinya buat fotosintesis, biar tanaman bisa bikin makanan sendiri. Gampang banget kan? Jangan bilang kamu baru tahu ini!"
-  }
-}
-        </pre>
-    </section>
+    <div class="container">
+        <div class="api-section">
+            <h2>1. AI Endpoint</h2>
+            <div class="endpoint">
+                <h3>GET /api/ai</h3>
+                <p>Description: This endpoint returns a sample response for an AI-related query.</p>
+                <pre><code>GET /api/ai</code></pre>
+                <h4>Sample Response:</h4>
+                <pre><code>{
+    "status": true,
+    "author": "iwan",
+    "result": {
+        "respon": "Klorofil itu zat hijau yang ada di tanaman, bro! Fungsinya buat fotosintesis, biar tanaman bisa bikin makanan sendiri."
+    }
+}</code></pre>
+            </div>
+        </div>
 
-    <section class="api-endpoint">
-        <h2>GET YOUTUBE MP3</h2>
-        <p><strong>URL:</strong> <a href="https://oneapiserver.vercel.app/yta/id?data=https://www.youtube.com/watch?v=0AJ1hOIyG4k" target="_blank">https://oneapiserver.vercel.app/yta/id?data=https://www.youtube.com/watch?v=0AJ1hOIyG4k</a></p>
-        <h3>Response</h3>
-        <pre>
-{
-  "status": true,
-  "author": "iwan",
-  "result": {
-    "title": "SALLSA BINTAN Ft. LEONA ZHEN - GARAM DAN MADU | Feat. RASTAMANIEZ (Official Live Version)",
-    "link": "http://oneapiserver.vercel.app/ytget/id?data=https%3A%2F%2Fapiv13dlp.cnvmp3.me%2Fdownloads%2Fdownload.php%3Ffile%3D%2FSALLSA%20BINTAN%20Ft.%20LEONA%20ZHEN%20-%20GARAM%20DAN%20MADU%20_%20Feat.%20RASTAMANIEZ%20(Official%20Live%20Version)%204.mp3"
-  }
-}
-        </pre>
-    </section>
+        <div class="api-section">
+            <h2>2. YTMP3 Endpoint</h2>
+            <div class="endpoint">
+                <h3>GET /api/ytmp3</h3>
+                <p>Description: This endpoint returns a link for downloading YouTube videos in MP3 format.</p>
+                <pre><code>GET /api/ytmp3</code></pre>
+                <h4>Sample Response:</h4>
+                <pre><code>{
+    "status": true,
+    "author": "iwan",
+    "result": {
+        "title": "SALLSA BINTAN Ft. LEONA ZHEN - GARAM DAN MADU | Official Live Version",
+        "link": "http://oneapiserver.vercel.app/ytget/id?data=https%3A%2F%2Fapiv13dlp.cnvmp3.me%2Fdownloads%2Fdownload.php%3Ffile%3D%2FSALLSA%20BINTAN%20Ft.%20LEONA%20ZHEN%20-%20GARAM%20DAN%20MADU%20_%20Feat.%20RASTAMANIEZ%20(Official%20Live%20Version)%204.mp3"
+    }
+}</code></pre>
+            </div>
+        </div>
 
-    <section class="api-endpoint">
-        <h2>GET YOUTUBE MP4</h2>
-        <p><strong>URL:</strong> <a href="https://oneapiserver.vercel.app/ytv/id?data=https://www.youtube.com/watch?v=cRKYbhZXoUI" target="_blank">https://oneapiserver.vercel.app/ytv/id?data=https://www.youtube.com/watch?v=cRKYbhZXoUI</a></p>
-        <h3>Response</h3>
-        <pre>
-{
-  "status": true,
-  "author": "iwan",
-  "result": {
-    "title": "LEONA ZHEN - BAGAIKAN LANGIT DAN BUMI | Feat. RASTAMANIEZ ( Official Live Version )",
-    "link": "http://oneapiserver.vercel.app/ytget/id?data=https%3A%2F%2Fapiv5dlp.cnvmp3.cc%2Fdownloads%2Fdownload.php%3Ffile%3D%2FLEONA%20ZHEN%20-%20BAGAIKAN%20LANGIT%20DAN%20BUMI%20_%20Feat.%20RASTAMANIEZ%20(%20Official%20Live%20Version%20)%20360.mp4"
-  }
-}
-        </pre>
-    </section>
+        <div class="api-section">
+            <h2>3. YTMP4 Endpoint</h2>
+            <div class="endpoint">
+                <h3>GET /api/ytmp4</h3>
+                <p>Description: This endpoint returns a link for downloading YouTube videos in MP4 format.</p>
+                <pre><code>GET /api/ytmp4</code></pre>
+                <h4>Sample Response:</h4>
+                <pre><code>{
+    "status": true,
+    "author": "iwan",
+    "result": {
+        "title": "LEONA ZHEN - BAGAIKAN LANGIT DAN BUMI | Official Live Version",
+        "link": "http://oneapiserver.vercel.app/ytget/id?data=https%3A%2F%2Fapiv5dlp.cnvmp3.cc%2Fdownloads%2Fdownload.php%3Ffile%3D%2FLEONA%20ZHEN%20-%20BAGAIKAN%20LANGIT%20DAN%20BUMI%20_%20Feat.%20RASTAMANIEZ%20(%20Official%20Live%20Version%20)%20360.mp4"
+    }
+}</code></pre>
+            </div>
+        </div>
 
-    <section class="api-endpoint">
-        <h2>GET TIKTOK</h2>
-        <p><strong>URL:</strong> <a href="https://oneapiserver.vercel.app/tiktok/id?data=https://vt.tiktok.com/ZSMCtdvKm" target="_blank">https://oneapiserver.vercel.app/tiktok/id?data=https://vt.tiktok.com/ZSMCtdvKm</a></p>
-        <h3>Response</h3>
-        <pre>
-{
-  "status": true,
-  "author": "iwan",
-  "result": {
-    "title": "#hanasqevent #mikka #アニメ #映画ドラえもんのび太の地球交響楽 #doraemonmovie #nobitanochikyuusymphony #hanasq #shiosquad #kizukisq ",
-    "linkUnblock": "https://tikwm.com/video/media/play/7409709964547067154.mp4",
-    "link": "https://tikwm.com/video/media/hdplay/7409709964547067154.mp4",
-    "musik": "https://tikwm.com/video/music/7409709964547067154.mp3"
-  }
-}
-        </pre>
-    </section>
+        <div class="api-section">
+            <h2>4. TikTok Endpoint</h2>
+            <div class="endpoint">
+                <h3>GET /api/tiktok</h3>
+                <p>Description: This endpoint provides TikTok video links and music download links.</p>
+                <pre><code>GET /api/tiktok</code></pre>
+                <h4>Sample Response:</h4>
+                <pre><code>{
+    "status": true,
+    "author": "iwan",
+    "result": {
+        "title": "#hanasqevent #mikka #アニメ #映画ドラえもんのび太の地球交響楽",
+        "linkUnblock": "https://tikwm.com/video/media/play/7409709964547067154.mp4",
+        "link": "https://tikwm.com/video/media/hdplay/7409709964547067154.mp4",
+        "musik": "https://tikwm.com/video/music/7409709964547067154.mp3"
+    }
+}</code></pre>
+            </div>
+        </div>
 
-    <section class="api-endpoint">
-        <h2>GET INSTAGRAM</h2>
-        <p><strong>URL:</strong> <a href="https://oneapiserver.vercel.app/ig/id?data=https://www.instagram.com/reel/DDd7QqeRyWX/?igsh=MWdpbWl5djhxMTFkMg==" target="_blank">https://oneapiserver.vercel.app/ig/id?data=https://www.instagram.com/reel/DDd7QqeRyWX/?igsh=MWdpbWl5djhxMTFkMg==</a></p>
-        <h3>Response</h3>
-        <pre>
-{
-  "status": true,
-  "author": "iwan",
-  "result": {
-    "thumb": "https://d.rapidcdn.app/snapinsta?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Njb250ZW50LWdpZzQtMi5jZG5pbnN0YWdyYW0uY29tL3YvdDUxLjI4ODUtMTUvNDY5OTc5MTA4XzE4MzgzMjY2NTM3MTA0MjQyXzg0NDYwMjgwOTYzMzUyNDM1MTBfbi5qcGc_c3RwPWRzdC1qcGdfZTE1X2ZyX3AxMDgweDEwODBfdHQ2Jl9uY19odD1zY29udGVudC1naWc0LTIuY2RuaW5zdGFncmFtLmNvbSZfbmNfY2F0PTEwMiZfbmNfb2M9UTZjWjJBRWZIc1JlN1lTeFl2Q2lGSGxWT01HQ21VZHlYYWpEd29aQjJCaGVHOG43Z0FBY015SUxlQnhDWEhOT01YSzNLSGsmX25jX29oYz1sbGd0RFk1YmpnZ1E3a052Z0ZfTnRVMiZfbmNfZ2lkPWFmODQzYjlmN2NkZjRmYzhiMmM2ODZhODE1ZTNkYzM1JmVkbT1BUHMxN0NVQkFBQUEmY2NiPTctNSZvaD0wMF9BWUE3ZnFsaGd4T1pPdjFNdlBfRUROaC1pTFBQalJjSC1QTFF5Q2NzVlBuV05RJm9lPTY3Q0Y4QUIyJl9uY19zaWQ9MTBkMTNiIiwiZmlsZW5hbWUiOiJTbmFwaW5zdGEuYXBwX3RodW1iXzQ2OTk3OTEwOF8xODM4MzI2NjUzNzEwNDI0Ml84NDQ2MDI4MDk2MzM1MjQzNTEwX24uanBnIn0.V1VFCKtv1Hx4mylh-4EniyB1E_7iVEqCg0dRxt-MpyQ",
-    "link": "https://d.rapidcdn.app/snapinsta?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Njb250ZW50LWdpZzQtMS5jZG5pbnN0YWdyYW0uY29tL28xL3YvdDE2L2YyL204Ni9BUU9mOVdacGJnY0E0b1dWa0JKRHE0ZlZvU21ydXdaelhmTmFQQUdOR2Y5d0VhMk5XVXJJc9OglKvCHY0eJw%2Ff%2Fw8Y%2Fvfxe%3Fmd5%3D51ca3c1c049d1fb3223c52008d3f6a71%26src%3Dvideo"
-  }
-}
-        </pre>
-    </section>
+        <div class="api-section">
+            <h2>5. Instagram Endpoint</h2>
+            <div class="endpoint">
+                <h3>GET /api/instagram</h3>
+                <p>Description: This endpoint provides Instagram video thumb and download links.</p>
+                <pre><code>GET /api/instagram</code></pre>
+                <h4>Sample Response:</h4>
+                <pre><code>{
+    "status": true,
+    "author": "iwan",
+    "result": {
+        "thumb": "https://d.rapidcdn.app/snapinsta?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Njb250ZW50LWdpZzQtMi5jZG5pbnN0YWdyYW0uY29tL3YvdTUxLjI4ODUtMTUvNDY5OTc5MTA4XzE4MzgzMjY2NTM3MTA0MjQyXzg0NDYwMjgwOTYzMzUyNDM1MTBfbi5qcGc...",
+        "link": "https://d.rapidcdn.app/snapinsta?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Njb250ZW50LWdpZzQtMS5jZG5pbnN0YWdyYW0uY29tL28xL3YvdDE2L2YyL204Ni9BUU9mOVdacGJnY0E0b1dWa0JKRHE0ZlZvU21ydXZaelhmTmFQQUdOR2Y5d0VhMk5XVXJJc9OglKvCHY0eJw%2Ff%2Fw8Y%2Fvfxe%3Fmd5%3D51ca3c1c049d1fb3223c52008d3f6a71%26src%3Dvideo"
+    }
+}</code></pre>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>&copy; 2025 API Documentation | Made with ❤️ by iwan</p>
+        <p>API Documentation &copy; 2025 | Built by iwan</p>
     </footer>
-
 </body>
 </html>
