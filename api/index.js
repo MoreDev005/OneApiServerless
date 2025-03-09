@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'api')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'api', 'index.html'));
+    res.sendFile(path.join(__dirname, 'api', 'home.html'));
 });
 
 app.get('/ytget/:id', async (req,res) => {
