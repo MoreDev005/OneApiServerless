@@ -2,8 +2,7 @@ const express = require("express");
 const app = express();
 const path = require('path');
 const ytmp3 = require("./savetube.js");
-const aichat = require('./aitoxic.js');
-const cai = require('./interactive-ai.js');
+const {aichat,interactive} = require('./aitoxic.js');
 const tikwm = require('./tikwm.js');
 const ig = require('./ig.js');
 const yta = require('./yta.js');
@@ -99,7 +98,7 @@ const q = req.body
 const emulate = () =>{
 async function start() {
 try{
-const respon = await cai(q)
+const respon = await interactive(q)
   res.send(respon)
 }catch(e){
     res.end()
