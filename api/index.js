@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const ytmp3 = require("./savetube.js");
 const aichat = require('./aitoxic.js');
+const cai = require('./interactive-ai.js');
 const tikwm = require('./tikwm.js');
 const ig = require('./ig.js');
 const yta = require('./yta.js');
@@ -82,6 +83,23 @@ const emulate = () =>{
 async function start() {
 try{
 const respon = await aichat(q)
+  res.send(respon)
+}catch(e){
+    res.end()
+}
+}
+start()
+}
+emulate()
+});
+
+//AI Costum Karakter
+app.post('/cai', async (req,res) => {
+const q = req.body
+const emulate = () =>{
+async function start() {
+try{
+const respon = await cai(q)
   res.send(respon)
 }catch(e){
     res.end()
