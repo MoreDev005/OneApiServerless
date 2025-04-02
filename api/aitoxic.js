@@ -54,6 +54,7 @@ return {status : false,author:'iwan', message : e.message}
 }
 
 const interactive = async (asset)=> {
+try{
 let head = {
   'Accept': '*/*',
   'Accept-Encoding': 'gzip, deflate, br, zstd',
@@ -75,7 +76,12 @@ let head = {
 
 // Example Axios request with the headers
 let response = await axios.post('https://gptchatly.com/dolphin',asset, { headers : head })
-return response.data
+if(response.status == 200){
+return {status : true ,author:'iwan',result:{respon : response.data}}
+}
+}catch(e){
+return {status : false,author:'iwan', message : e.message}
+}
 }
 
 module.exports = {aichat,interactive}
